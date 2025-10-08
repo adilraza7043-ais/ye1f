@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorry Lv 💌</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+      font-family: 'Poppins', sans-serif;
+      color:#2c2c2c;
+      text-align:center;
+      overflow:hidden;
+      padding:0 20px;
+    }
+
+    .typing {
+      border-right:2px solid rgba(0,0,0,0.6);
+      display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      animation:typing 5s steps(40,end) forwards, blink .8s step-end infinite alternate;
+      font-weight:600;
+      font-size:1.6rem;
+      margin-bottom:20px;
+    }
+    @keyframes typing {from{width:0} to{width:100%}}
+    @keyframes blink {50%{border-color:transparent}}
+
+    p {
+      font-size:1.2rem;
+      line-height:1.6;
+      opacity:0;
+      animation:fadeIn 2s ease forwards;
+    }
+    @keyframes fadeIn {
+      from{opacity:0;transform:translateY(20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    .heart {
+      color:red;
+      font-size:2.8rem;
+      animation:heartbeat 1.5s infinite;
+      margin-top:25px;
+    }
+    @keyframes heartbeat {
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.3);}
+    }
+
+    .btn {
+      margin-top:40px;
+      padding:12px 30px;
+      background:white;
+      border:none;
+      border-radius:25px;
+      font-size:1.1rem;
+      cursor:pointer;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition:transform .3s, background .3s;
+    }
+    .btn:hover {
+      transform:scale(1.05);
+      background:#ffe6e9;
+    }
+
+    footer {
+      position:absolute;
+      bottom:15px;
+      font-size:.9rem;
+      opacity:.6;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_14d1b8dc90.mp3?filename=beautiful-piano-ambient-117019.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="typing">Sorry Lv 💖</div>
+
+  <div id="lines"></div>
+
+  <div class="heart">❤️</div>
+  <button class="btn" onclick="alert('Thank you for forgiving me ❤️ You’re my everything!')">
+    Forgive Me?
+  </button>
+
+  <footer>Made with ❤️ just for you</footer>
+
+  <script>
+    const phrases = [
+      "I know I’ve made mistakes… and I’m truly sorry 💔",
+      "You’re the best, Lv 🥺",
+      "You’re awesome, kind and absolutely amazing 💫",
+      "You’re my peace, my smile, my person 💞",
+      "So so soooorrryyyy Lv 😔",
+      "I never meant to hurt you, not even once 💌",
+      "No one can ever take your place in my heart ❤️",
+      "You deserve all the love and happiness 🌸",
+      "I’ll always choose you, every single time 💕",
+      "You’re my everything, Lv 💖",
+      "Please forgive me… I can’t lose you 😭",
+      "You make my world brighter ✨",
+      "I Love You Lv 💫"
+    ];
+
+    const container = document.getElementById("lines");
+    let i = 0;
+    function showNextLine() {
+      if (i < phrases.length) {
+        const p = document.createElement("p");
+        p.textContent = phrases[i];
+        p.style.animationDelay = "0.3s";
+        container.appendChild(p);
+        i++;
+        setTimeout(showNextLine, 2500);
+      }
+    }
+    setTimeout(showNextLine, 5000);
+  </script>
+</body>
+</html>
